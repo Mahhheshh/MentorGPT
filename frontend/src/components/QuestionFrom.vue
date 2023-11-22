@@ -1,22 +1,22 @@
 <template>
-    <div class="w-1/4 h-screen">
+    <div class="md:w-auto p-3 md:h-full flex flex-col gap-6  sm:w-full">
         <!-- hero title named 'Virtual mentor' -->
-        <div class="w-full h-1/6">
+        <div class="w-full md:my-auto">
             <div class="w-full h-full flex justify-center items-center">
                 <h1 class="text-3xl text-white">Virtual Mentor</h1>
             </div>
         </div>
-        <div class="w-full h-3/4">
-            <div class="w-full h-full flex justify-center">
-                <form @submit.prevent="handleSubmit">
-                    <div class="mb-4 w-full h-5/6">
+        <div class="w-full h-full md:flex-1 mt-auto bg-slate-800 md:p-2 sm:px-0 md:px-10  rounded-md mb-0 md:mb-10">
+            <div class="w-full md:h-full flex justify-center">
+                <form class="w-full px-2" @submit.prevent="handleSubmit">
+                    <div class="mb-4 w-full sm:h-auto md:h-[90%]">
                         <label for="questioninput" class="block mb-2 font-bold text-white">What is your question?</label>
                         <textarea
-                            class="w-full h-full px-3 py-2 leading-tight text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline dark:bg-gray-800"
+                            class="w-full h-full px-3 py-2 leading-tight text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline dark:bg-slate-900"
                             rows="5" v-model="question" required></textarea>
                     </div>
-                    <div class="my-9">
-                        <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+                    <div class="md:my-9">
+                        <button type="submit" class="text-black px-4 py-2 font-bold text-white bg-blue-300 rounded hover:bg-blue-700"
                             :disabled="loading">
                             {{ loading ? 'Loading' : 'Submit' }}
                         </button>
@@ -26,8 +26,8 @@
         </div>
     </div>
     <!--text display area which have width of 75% of parent and 100vh height -->
-    <div class="w-3/4 h-screen">
-        <div class="w-full h-full" v-html="toMarkdown(streamResponse)" style="margin-top: 55px;"></div>
+    <div class="flex-1 flex h-full p-4 sm:p-4 md:p-14">
+        <div class="w-full h-[100%] mt-3 bg-slate-800 overflow-y-scroll text-white p-4 rounded-md" v-html="toMarkdown(streamResponse)" ></div>
     </div>
 </template>
   
